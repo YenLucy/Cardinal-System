@@ -1,0 +1,108 @@
+.cardinal-wrapper {
+
+max-width: 800px;
+margin-left: auto;
+margin-right: auto;
+}
+
+.quest-input {
+
+}
+
+.quest-output {
+
+}
+
+.npc-input {
+
+}
+
+.npc-output {
+
+}
+
+.lore-input {
+
+}
+
+.lore-output {
+
+}
+
+.money-input {
+
+}
+
+.money-output {
+
+}
+
+.table-input {
+
+}
+
+.table-output {
+
+}
+
+.outerwrapper {
+	border: 1px solid black;
+	padding: 10px;
+}
+
+.innerwrapper {
+
+}
+
+.input {
+    width: 50%;
+    display: inline-block;
+    float: left;
+}
+
+.output {
+    width: 49%;
+    min-height: 162px;
+    display: inline-block;
+    border: 2px solid black;
+}
+
+h1,h2,h3,h4,h5,h6,p {
+	padding: 0 !important;
+	margin: 0 !important;
+}
+
+.headline {
+	text-align: center;
+}
+
+.questgen-submit {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top:10px;
+	margin-bottom: 5px;
+}
+
+.questgen-staende {
+	display: flex;
+	margin-bottom: 10px;
+}
+
+.questgen-region {
+	display: flex;
+	margin-bottom: 10px;
+}
+
+.questgen-region .select {
+	margin-left: 24px;
+}
+
+.questgen-staende .select {
+	margin-left: 25px;
+}
+
+.input-text {
+	margin-top: 10px;
+	margin-bottom: 10px;
+}

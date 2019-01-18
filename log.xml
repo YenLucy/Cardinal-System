@@ -1,0 +1,10 @@
+<?<?xml version="1.0" encoding="UTF-8"?>
+
+<actual v="0.1"></actualversion>
+
+<changelog>
+	<version>0.1</version>
+	<changes>
+		001 - implemented rudimentary functionality for quest gen;
+	</changes>
+</changelog>
