@@ -6,5 +6,7 @@
 	<version>0.1</version>
 	<changes>
 		001 - implemented rudimentary functionality for quest gen;
+		006 - reworked index.php to be based off gamesystem-file;
+		008 - made documentation to 006;
 	</changes>
 </changelog>
