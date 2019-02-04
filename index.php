@@ -2,11 +2,13 @@
 <html>
 	<?php
 		$CardinalVersionNumber = 0.1;
+		include "cardinal-questgen.php";
+		include "system.php"	
 	?>
 
 	<head>
 		<title>
-			Cardinal Version <?= $CardinalVersionNumber ?>
+			<?php echo lang("TITLE"); ?><?= $CardinalVersionNumber ?>
 		</title>
 		
 		<link rel="stylesheet" href="CSS/CardinalStyles.css">
@@ -18,25 +20,19 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 	</head>
 	<body>
-
-		<?php 
-			include "cardinal-questgen.php";
-		 ?>
-
 		<div class="cardinal-wrapper">
-
 			<div class="intro">
-				<h1>Cardinal-System - Version Nr. <?= $CardinalVersionNumber ?></h1>
-				<p class="introtext">Das Cardinal-System ist eine Erweiterung des Pen and Paper. In dieser Grundfassung ist es auf Hexxen1733 gemünzt. Es kann Quests, NPCs, Belohnungswerte (gemessen an Stand, Ruf und Schwierigkeit der Quest) und in Kürze sogar Lore generieren, welche zur Region passt und beliebig vom GM eingespielt werden kann. Es ist als Spielleiter-Werkzeug zu betrachten, welches die Arbeit desselben stark vereinfachen soll.</p>
+				<h1><?php echo lang("INTRO_HL"); ?><?= $CardinalVersionNumber ?></h1>
+				<p class="introtext"><?php echo lang("INTRO_TEXT"); ?></p>
 			</div>
 
 			<div class="quest-outerwrapper outerwrapper">
-				<h2 class="headline">Quest-Generator</h2>
+				<h2 class="headline"><?php echo lang("MODULE_1"); ?></h2>
 				<div class="quest-innerwrapper innerwrapper">
 					<form class="quest-input input">
 						
 						<div class="questgen-staende">
-						<h3>Stände</h3>
+						<h3><?php echo lang("M1_PART_1"); ?></h3>
 						<select name="staende" class="select stand">
 							<option value=0>Gesindel</option>
 							<option value=1>Bedienstete</option>
@@ -54,7 +50,7 @@
 						</div>
 						
 						<div class="questgen-region">
-						<h3>Region</h3>
+						<h3><?php echo lang("M1_PART_2"); ?></h3>
 						<select name="region" class="select region">
 							<option value=0>Deutschland</option>
 							<option value=1>Frankreich</option>
@@ -67,7 +63,7 @@
 						</div>
 						
 						<div class="questgen-reputation">
-						<h3>Ruf</h3>
+						<h3><?php echo lang("M1_PART_3"); ?></h3>
 						<input type="text" name="reputation" class="input-text reputation">
 						<p>(---;--;-;0;+;++;+++ für gewählten Stand)</p>
 						</div>
@@ -85,7 +81,7 @@
 			</div>
 
 			<div class="npc-outerwrapper outerwrapper">
-				<h2 class="headline">NPC-Generator</h2>
+				<h2 class="headline"><?php echo lang("MODULE_2"); ?></h2>
 				<div class="npc-innerwrapper innerwrapper">
 					<form class="npc-input input">
 					</form>
@@ -94,7 +90,7 @@
 			</div>
 
 			<div class="money-outerwrapper outerwrapper">
-				<h2 class="headline">Geld-Generator</h2>
+				<h2 class="headline"><?php echo lang("MODULE_3"); ?></h2>
 				<div class="money-innerwrapper innerwrapper">
 					<form class="money-input input">
 					</form>
@@ -103,7 +99,7 @@
 			</div>
 
 			<div class="lore-outerwrapper outerwrapper">
-				<h2 class="headline">Lore-Generator</h2>
+				<h2 class="headline"><?php echo lang("MODULE_4"); ?></h2>
 				<div class="lore-innerwrapper innerwrapper">
 					<form class="lore-input input">
 					</form>
