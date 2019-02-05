@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<?php
-		$CardinalVersionNumber = 0.1;
+		$CardinalVersionNumber = 0.2;
 		include "system.php";
 		include "cardinal-questgen.php";	
 	?>
