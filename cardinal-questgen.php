@@ -6,6 +6,9 @@ function cardinalquestgen($stand,$region,$reputation) {
 
 	include "MYSQL.php";
 
+//  Dieser Include funktioniert momentan nicht - Wird er eingebaut, wird das PHP gekillt. Warum?
+//	include "system.php";
+
 	$db = mysqli_connect($MYSQL_HOSTIP,$MYSQL_USER,$MYSQL_PASS,$MYSQL_DATABASE);
 	if(!$db)
 	{

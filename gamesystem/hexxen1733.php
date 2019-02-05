@@ -23,6 +23,29 @@ function lang($phrase){
     return $lang[$phrase];
 }
 
+$mysql_input = array(
+	'SECTION_1' => 'Nachname',
+	'SECTION_2' => 'Name',
+	'SECTION_3' => 'Nebenquest',
+	'SECTION_4' => 'Region',
+	'SECTION_5' => 'Stand',
+	'SECTION_1-PART_ID' => 'idNachname',
+	'SECTION_1-PART_1' => 'Region',
+	'SECTION_1-PART_2' => 'Name',
+	'SECTION_1-PART_3' => 'Stand',
+	'SECTION_2-PART_ID' => 'idName',
+	'SECTION_2-PART_1' => 'Region',
+	'SECTION_2-PART_2' => 'Name',
+	'SECTION_3-PART_ID' => 'idNebenquest',
+	'SECTION_3-PART_1' => 'Questlog',
+	'SECTION_3-PART_2' => 'Stand',
+	'SECTION_3-PART_3' => 'BelohnungGold',
+	'SECTION_3-PART_4' => 'BelohnungRuf',
+	'SECTION_4-PART_ID' => 'idRegion',
+	'SECTION_4-PART_1' => 'Name',
+	'SECTION_5-PART_ID' => 'idStand',
+	'SECTION_5-PART_1' => 'Name'
+);
 
 
 ?>
