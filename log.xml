@@ -1,6 +1,6 @@
 <?<?xml version="1.0" encoding="UTF-8"?>
 
-<actual v="0.1"></actualversion>
+<actual v="0.2"></actualversion>
 
 <changelog>
 	<version>0.1</version>
@@ -9,5 +9,10 @@
 		006 - reworked index.php to be based off gamesystem-file;
 		007 - reworked cardinal-questgen.php to be based off gamesystem-db-file;
 		008 - made documentation to 006 and 007;	
+	</changes>
+</changelog>
+<changelog>
+	<version>0.2</version>
+	<changes>	
 	</changes>
 </changelog>
