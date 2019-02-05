@@ -33,4 +33,5 @@ Structure:
 
 Appendix B - Database Structure
 Saveplace: external mysql-host
-Structure: wip
+Structure: 
+the database is allowed to have any structure, which fits the pattern included in gamesystem-db file. Just change the variables inside to fit the queries.

@@ -13,6 +13,13 @@ function lang($phrase){
         'M1_PART_2' => 'Region',
         'M1_PART_3' => 'Ruf',
 
+        'M1_OUTPUT_1' => 'Der Stand des Klienten ist ',
+        'M1_OUTPUT_2' => 'Die Region des Klienten ist ',
+        'M1_OUTPUT_3' => 'Der Name des Klienten ist ',
+        'M1_OUTPUT_4' => 'Aufgabe:',
+        'M1_OUTPUT_5' => 'Gold-Belohnung:',
+        'M1_OUTPUT_6' => 'Ruf-Belohnung:',
+
         'MODULE_2' => 'NPC-Generator',
 
         'MODULE_3' => 'Geld-Generator',
@@ -22,7 +29,5 @@ function lang($phrase){
     );
     return $lang[$phrase];
 }
-
-
 
 ?>
