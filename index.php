@@ -3,7 +3,14 @@
 	<?php
 		$CardinalVersionNumber = 0.2;
 		include "system.php";
+		include "MYSQL_PARAMS.php";
 		include "cardinal-questgen.php";	
+		// include "cardinal-npcgen.php";
+
+		$db = mysqli_connect($MYSQL_HOSTIP,$MYSQL_USER,$MYSQL_PASS,$MYSQL_DATABASE);
+		if(!$db) {
+		  	exit("Verbindungsfehler: ".mysqli_connect_error());
+		}
 	?>
 
 	<head>
@@ -34,38 +41,44 @@
 						<div class="questgen-staende">
 						<h3><?php echo lang("M1_PART_1"); ?></h3>
 						<select name="staende" class="select stand">
-							<option value=0>Gesindel</option>
-							<option value=1>Bedienstete</option>
-							<option value=2>Unehrliche</option>
-							<option value=3>Unreine</option>
-							<option value=4>Handwerker</option>
-							<option value=5>Gelehrte</option>
-							<option value=6>Gehobene</option>
-							<option value=7>Kriegsvolk</option>
-							<option value=8>Geistliche</option>
-							<option value=9>Patrizier</option>
-							<option value=10>Adlige</option>
-							<option value=11>Jäger</option>
+							<?php
+								$ergebnis = mysqli_query($db,"SELECT * FROM ".$SECTION_5." ORDER BY ".$SECTION_5_PART_ID);
+								$ergebnis = mysqli_fetch_all($ergebnis);
+								$count = 0;
+								while($ergebnis[$count] !== null) {
+									echo "<option value=".$ergebnis[$count][0].">".$ergebnis[$count][1]."</option>";
+									$count = $count + 1;
+								}
+							?>
 						</select>
 						</div>
-						
+					
 						<div class="questgen-region">
 						<h3><?php echo lang("M1_PART_2"); ?></h3>
 						<select name="region" class="select region">
-							<option value=0>Deutschland</option>
-							<option value=1>Frankreich</option>
-							<option value=2>Spanien</option>
-							<option value=3>Niederlande</option>
-							<option value=4>Ost-Europa</option>
-							<option value=5>Italien</option>
-							<option value=6>England</option>
+							<?php
+								$ergebnis = mysqli_query($db,"SELECT * FROM ".$SECTION_4." ORDER BY ".$SECTION_4_PART_ID);
+								$ergebnis = mysqli_fetch_all($ergebnis);
+								$count = 0;
+								while($ergebnis[$count] !== null) {
+									echo "<option value=".$ergebnis[$count][0].">".$ergebnis[$count][1]."</option>";
+									$count = $count + 1;
+								}
+							?>
 						</select>
 						</div>
 						
 						<div class="questgen-reputation">
 						<h3><?php echo lang("M1_PART_3"); ?></h3>
-						<input type="text" name="reputation" class="input-text reputation">
-						<p>(---;--;-;0;+;++;+++ für gewählten Stand)</p>
+						<select name="reputation" class="input-text reputation">
+							<option value="---">---</option>
+							<option value="--">--</option>
+							<option value="-">-</option>
+							<option value="O">O</option>
+							<option value="+">+</option>
+							<option value="++">++</option>
+							<option value="+++">+++</option>
+						</select>
 						</div>
 						
 						<input type="submit" class="questgen-submit">
@@ -84,6 +97,22 @@
 				<h2 class="headline"><?php echo lang("MODULE_2"); ?></h2>
 				<div class="npc-innerwrapper innerwrapper">
 					<form class="npc-input input">
+						<div class="npcgen-region">
+							
+
+						</div>
+						<div class="npcgen-tragicalpast">
+							
+
+						</div>
+						<div class="npcgen-stand">
+							
+
+						</div>
+						<div class="npcgen-job">
+							
+
+						</div>
 					</form>
 					<div class="npc-output output"></div>
 				</div>

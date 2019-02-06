@@ -3,8 +3,6 @@
 
 function cardinalquestgen($stand,$region,$reputation) {
 	
-
-	include "MYSQL.php";
 	include "MYSQL_PARAMS.php";
 
 	$db = mysqli_connect($MYSQL_HOSTIP,$MYSQL_USER,$MYSQL_PASS,$MYSQL_DATABASE);
