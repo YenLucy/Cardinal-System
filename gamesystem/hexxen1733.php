@@ -21,6 +21,18 @@ function lang($phrase){
         'M1_OUTPUT_6' => 'Ruf-Belohnung:',
 
         'MODULE_2' => 'NPC-Generator',
+        'M2_PART_1' => 'Region',
+        'M2_PART_2' => 'Tragische Vergangenheit',
+        'M2_PART_3' => 'Stand',
+        'M2_PART_4' => 'Job',
+
+        'M2_OUTPUT_1' => 'Der NSC heisst ',
+        'M2_OUTPUT_2' => 'Der NSC hat folgende Einschränkung: ',
+        'M2_OUTPUT_3' => '',
+        'M2_OUTPUT_4' => '',
+        'M2_OUTPUT_5' => '',
+        'M2_OUTPUT_6' => '',
+        
 
         'MODULE_3' => 'Geld-Generator',
 

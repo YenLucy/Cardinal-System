@@ -5,7 +5,7 @@
 		include "system.php";
 		include "MYSQL_PARAMS.php";
 		include "cardinal-questgen.php";	
-		// include "cardinal-npcgen.php";
+		include "cardinal-npcgen.php";
 
 		$db = mysqli_connect($MYSQL_HOSTIP,$MYSQL_USER,$MYSQL_PASS,$MYSQL_DATABASE);
 		if(!$db) {
@@ -98,23 +98,65 @@
 				<div class="npc-innerwrapper innerwrapper">
 					<form class="npc-input input">
 						<div class="npcgen-region">
-							
-
+							<h3><?php echo lang("M2_PART_1"); ?></h3>
+							<select name="region" class="select region">
+							<?php
+								$ergebnis = mysqli_query($db,"SELECT * FROM ".$SECTION_4." ORDER BY ".$SECTION_4_PART_ID);
+								$ergebnis = mysqli_fetch_all($ergebnis);
+								$count = 0;
+								while($ergebnis[$count] !== null) {
+									echo "<option value=".$ergebnis[$count][0].">".$ergebnis[$count][1]."</option>";
+									$count = $count + 1;
+								}
+							?>
+							</select>
+						</div>
 						</div>
 						<div class="npcgen-tragicalpast">
-							
+							<h3><?php echo lang("M2_PART_2"); ?></h3>
+						<select name="past" class="select past">
+							<option value=1>true</option>
+							<option value=0>false</option>
+						</select>
 
 						</div>
 						<div class="npcgen-stand">
-							
-
+							<h3><?php echo lang("M2_PART_3"); ?></h3>
+							<select name="stand" class="select stand">
+							<?php
+								$ergebnis = mysqli_query($db,"SELECT * FROM ".$SECTION_5." ORDER BY ".$SECTION_5_PART_ID);
+								$ergebnis = mysqli_fetch_all($ergebnis);
+								$count = 0;
+								while($ergebnis[$count] !== null) {
+									echo "<option value=".$ergebnis[$count][0].">".$ergebnis[$count][1]."</option>";
+									$count = $count + 1;
+								}
+							?>
+						</select>
 						</div>
 						<div class="npcgen-job">
-							
-
+							<h3><?php echo lang("M2_PART_4"); ?></h3>
+							<select name="job" class="select job">
+							<option value="random">random</option>
+							<?php
+								$ergebnis = mysqli_query($db,"SELECT * FROM ".$SECTION_8." ORDER BY ".$SECTION_8_PART_ID);
+								$ergebnis = mysqli_fetch_all($ergebnis);
+								$count = 0;
+								while($ergebnis[$count] !== null) {
+									echo "<option value=".$ergebnis[$count][0].">".$ergebnis[$count][1]."</option>";
+									$count = $count + 1;
+								}
+							?>
+						</select>
 						</div>
+
+						<input type="submit" class="npcgen-submit">
 					</form>
-					<div class="npc-output output"></div>
+					<div class="npc-output output">
+						<?php 
+							if($_GET["region"] != NULL && $_GET["past"] != NULL && $_GET["stand"] != NULL && $_GET["job"] != NULL) cardinalnpcgen($_GET["region"],$_GET["past"],$_GET["stand"],$_GET["job"]);
+						?>
+					</div>
 				</div>
 			</div>
 

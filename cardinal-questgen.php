@@ -13,8 +13,6 @@ function cardinalquestgen($stand,$region,$reputation) {
 
 	mysqli_set_charset($db,'utf-8');
 
-	//$test = ;
-
 	//Stand
 	echo lang("M1_OUTPUT_1");
 	$stand = intval($stand);
