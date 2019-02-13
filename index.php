@@ -1,9 +1,17 @@
 <!DOCTYPE html>
 <html>
 	<?php
-		$CardinalVersionNumber = 0.1;
+		$CardinalVersionNumber = 0.2;
 		include "system.php";
+		include "MYSQL_PARAMS.php";
 		include "cardinal-questgen.php";	
+		include "cardinal-npcgen.php";
+		include "cardinal-moneygen.php";
+
+		$db = mysqli_connect($MYSQL_HOSTIP,$MYSQL_USER,$MYSQL_PASS,$MYSQL_DATABASE);
+		if(!$db) {
+		  	exit("Verbindungsfehler: ".mysqli_connect_error());
+		}
 	?>
 
 	<head>
@@ -34,38 +42,44 @@
 						<div class="questgen-staende">
 						<h3><?php echo lang("M1_PART_1"); ?></h3>
 						<select name="staende" class="select stand">
-							<option value=0>Gesindel</option>
-							<option value=1>Bedienstete</option>
-							<option value=2>Unehrliche</option>
-							<option value=3>Unreine</option>
-							<option value=4>Handwerker</option>
-							<option value=5>Gelehrte</option>
-							<option value=6>Gehobene</option>
-							<option value=7>Kriegsvolk</option>
-							<option value=8>Geistliche</option>
-							<option value=9>Patrizier</option>
-							<option value=10>Adlige</option>
-							<option value=11>Jäger</option>
+							<?php
+								$ergebnis = mysqli_query($db,"SELECT * FROM ".$SECTION_5." ORDER BY ".$SECTION_5_PART_ID);
+								$ergebnis = mysqli_fetch_all($ergebnis);
+								$count = 0;
+								while($ergebnis[$count] !== null) {
+									echo "<option value=".$ergebnis[$count][0].">".$ergebnis[$count][1]."</option>";
+									$count = $count + 1;
+								}
+							?>
 						</select>
 						</div>
-						
+					
 						<div class="questgen-region">
 						<h3><?php echo lang("M1_PART_2"); ?></h3>
 						<select name="region" class="select region">
-							<option value=0>Deutschland</option>
-							<option value=1>Frankreich</option>
-							<option value=2>Spanien</option>
-							<option value=3>Niederlande</option>
-							<option value=4>Ost-Europa</option>
-							<option value=5>Italien</option>
-							<option value=6>England</option>
+							<?php
+								$ergebnis = mysqli_query($db,"SELECT * FROM ".$SECTION_4." ORDER BY ".$SECTION_4_PART_ID);
+								$ergebnis = mysqli_fetch_all($ergebnis);
+								$count = 0;
+								while($ergebnis[$count] !== null) {
+									echo "<option value=".$ergebnis[$count][0].">".$ergebnis[$count][1]."</option>";
+									$count = $count + 1;
+								}
+							?>
 						</select>
 						</div>
 						
 						<div class="questgen-reputation">
 						<h3><?php echo lang("M1_PART_3"); ?></h3>
-						<input type="text" name="reputation" class="input-text reputation">
-						<p>(---;--;-;0;+;++;+++ für gewählten Stand)</p>
+						<select name="reputation" class="input-text reputation">
+							<option value="---">---</option>
+							<option value="--">--</option>
+							<option value="-">-</option>
+							<option value="O">O</option>
+							<option value="+">+</option>
+							<option value="++">++</option>
+							<option value="+++">+++</option>
+						</select>
 						</div>
 						
 						<input type="submit" class="questgen-submit">
@@ -84,8 +98,66 @@
 				<h2 class="headline"><?php echo lang("MODULE_2"); ?></h2>
 				<div class="npc-innerwrapper innerwrapper">
 					<form class="npc-input input">
+						<div class="npcgen-region">
+							<h3><?php echo lang("M2_PART_1"); ?></h3>
+							<select name="region" class="select region">
+							<?php
+								$ergebnis = mysqli_query($db,"SELECT * FROM ".$SECTION_4." ORDER BY ".$SECTION_4_PART_ID);
+								$ergebnis = mysqli_fetch_all($ergebnis);
+								$count = 0;
+								while($ergebnis[$count] !== null) {
+									echo "<option value=".$ergebnis[$count][0].">".$ergebnis[$count][1]."</option>";
+									$count = $count + 1;
+								}
+							?>
+							</select>
+						</div>
+				
+						<div class="npcgen-tragicalpast">
+							<h3><?php echo lang("M2_PART_2"); ?></h3>
+						<select name="past" class="select past">
+							<option value=1>true</option>
+							<option value=0>false</option>
+						</select>
+
+						</div>
+						<div class="npcgen-stand">
+							<h3><?php echo lang("M2_PART_3"); ?></h3>
+							<select name="stand" class="select stand">
+							<?php
+								$ergebnis = mysqli_query($db,"SELECT * FROM ".$SECTION_5." ORDER BY ".$SECTION_5_PART_ID);
+								$ergebnis = mysqli_fetch_all($ergebnis);
+								$count = 0;
+								while($ergebnis[$count] !== null) {
+									echo "<option value=".$ergebnis[$count][0].">".$ergebnis[$count][1]."</option>";
+									$count = $count + 1;
+								}
+							?>
+						</select>
+						</div>
+						<div class="npcgen-job">
+							<h3><?php echo lang("M2_PART_4"); ?></h3>
+							<select name="job" class="select job">
+							<option value="random">random</option>
+							<?php
+								$ergebnis = mysqli_query($db,"SELECT * FROM ".$SECTION_8." ORDER BY ".$SECTION_8_PART_ID);
+								$ergebnis = mysqli_fetch_all($ergebnis);
+								$count = 0;
+								while($ergebnis[$count] !== null) {
+									echo "<option value=".$ergebnis[$count][0].">".$ergebnis[$count][1]."</option>";
+									$count = $count + 1;
+								}
+							?>
+						</select>
+						</div>
+
+						<input type="submit" class="npcgen-submit">
 					</form>
-					<div class="npc-output output"></div>
+					<div class="npc-output output">
+						<?php 
+							if($_GET["region"] != NULL && $_GET["past"] != NULL && $_GET["stand"] != NULL && $_GET["job"] != NULL) cardinalnpcgen($_GET["region"],$_GET["past"],$_GET["stand"],$_GET["job"]);
+						?>
+					</div>
 				</div>
 			</div>
 
@@ -93,8 +165,60 @@
 				<h2 class="headline"><?php echo lang("MODULE_3"); ?></h2>
 				<div class="money-innerwrapper innerwrapper">
 					<form class="money-input input">
+						<div class="moneygen-geld">
+							<?php
+							echo lang("M3_PART_1");
+							?>
+							<input type="text" name="gulden" class=" gulden">
+						</div>
+						<div class="moneygen-belohnung">
+							<?php
+							echo lang("M3_PART_2");
+							?>
+							<select name="belohnung" class="select belohnung">
+								<?php
+								$ergebnis = mysqli_query($db,"SELECT * FROM ".$SECTION_15." ORDER BY ".$SECTION_15_PART_ID);
+								$ergebnis = mysqli_fetch_all($ergebnis);
+								$count = 0;
+								while($ergebnis[$count] !== null) {
+									echo "<option value=".$ergebnis[$count][0].">".$ergebnis[$count][3]."</option>";
+									$count = $count + 1;
+								}
+								?>
+							</select>
+						</div>
+						<div class="moneygen-kategorie">
+							<?php
+							echo lang("M3_PART_3");
+							?>
+							<select name="kategorie" class="select kategorie">
+								<option value="random">Random</option>
+							<?php
+								$ergebnis = mysqli_query($db,"SELECT * FROM ".$SECTION_14." ORDER BY ".$SECTION_14_PART_ID);
+								$ergebnis = mysqli_fetch_all($ergebnis);
+
+								$count = 0;
+								while($ergebnis[$count] !== null) {
+									echo "<option value=".$ergebnis[$count][0].">".$ergebnis[$count][1]."</option>";
+									$count = $count + 1;
+								}
+							?>
+							</select>
+						</div>
+
+						<input type="submit" class="moneygen-submit">
 					</form>
-					<div class="money-output output"></div>
+					<div class="money-output output">
+						<?php					
+						if($_GET["gulden"]) {
+							if($_GET["kategorie"] != NULL && $_GET["belohnung"] != NULL) cardinalmoneygen($_GET["belohnung"],$_GET["kategorie"],$_GET["gulden"]);
+						}
+						else {
+							if($_GET["kategorie"] != NULL && $_GET["belohnung"] != NULL) cardinalmoneygen($_GET["belohnung"],$_GET["kategorie"],0);	
+						}
+						?>
+
+					</div>
 				</div>
 			</div>
 

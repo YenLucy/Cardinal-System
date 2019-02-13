@@ -3,8 +3,6 @@
 
 function cardinalquestgen($stand,$region,$reputation) {
 	
-
-	include "MYSQL.php";
 	include "MYSQL_PARAMS.php";
 
 	$db = mysqli_connect($MYSQL_HOSTIP,$MYSQL_USER,$MYSQL_PASS,$MYSQL_DATABASE);
@@ -14,8 +12,6 @@ function cardinalquestgen($stand,$region,$reputation) {
 	}
 
 	mysqli_set_charset($db,'utf-8');
-
-	//$test = ;
 
 	//Stand
 	echo lang("M1_OUTPUT_1");
@@ -69,7 +65,7 @@ function cardinalquestgen($stand,$region,$reputation) {
 	echo "<br>";
 	echo $ergebnis[$randomvalue][1];
 	
-	echo "<br><br>";
+	echo "<br>";
 	echo lang("M1_OUTPUT_6");
 	echo "<br>";
 	echo $ergebnis[$randomvalue][2];

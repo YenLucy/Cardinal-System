@@ -21,8 +21,35 @@ function lang($phrase){
         'M1_OUTPUT_6' => 'Ruf-Belohnung:',
 
         'MODULE_2' => 'NPC-Generator',
+        'M2_PART_1' => 'Region',
+        'M2_PART_2' => 'Tragische Vergangenheit',
+        'M2_PART_3' => 'Stand',
+        'M2_PART_4' => 'Job',
+
+        'M2_OUTPUT_1' => 'Der NSC heisst ',
+        'M2_OUTPUT_2' => 'Der NSC hat folgende Einschränkung: ',
+        'M2_OUTPUT_3' => 'Der NSC kommt aus der Region ',
+        'M2_OUTPUT_4' => 'Der NSC kommt aus dem Stand ',
+        'M2_OUTPUT_5' => ' und geht dem Beruf ',
+        'M2_OUTPUT_6' => ' nach.',
+        'M2_OUTPUT_7' => 'Der Charakter hat folgende Sprachauffälligkeiten: ',
+        'M2_OUTPUT_8' => 'Der Charakter hat folgende kosmetische Auffälligkeiten: ',
+        'M2_OUTPUT_9' => 'Die Statur des NSC beschreibt sich wie folgt: ',
 
         'MODULE_3' => 'Geld-Generator',
+        'M3_PART_1' => 'Goldzahl',
+        'M3_PART_2' => 'Belohnung',
+        'M3_PART_3' => 'Kategorie',
+
+        'M3_OUTPUT_1' => 'Der Geltungsbereich ist ',
+        'M3_OUTPUT_2' => ' - ',
+        'M3_OUTPUT_3' => 'Der zufällig ermittelte Wert ist ',
+        'M3_OUTPUT_4' => 'Die gewählte Kategorie ist ',
+        'M3_OUTPUT_5' => '',
+        'M3_OUTPUT_6' => '',
+        'M3_OUTPUT_7' => '',
+        'M3_OUTPUT_8' => '',
+        'M3_OUTPUT_9' => '',
 
         'MODULE_4' => 'Lore-Generator'
 
