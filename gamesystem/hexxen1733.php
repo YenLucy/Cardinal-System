@@ -28,11 +28,13 @@ function lang($phrase){
 
         'M2_OUTPUT_1' => 'Der NSC heisst ',
         'M2_OUTPUT_2' => 'Der NSC hat folgende Einschränkung: ',
-        'M2_OUTPUT_3' => '',
-        'M2_OUTPUT_4' => '',
-        'M2_OUTPUT_5' => '',
-        'M2_OUTPUT_6' => '',
-        
+        'M2_OUTPUT_3' => 'Der NSC kommt aus der Region ',
+        'M2_OUTPUT_4' => 'Der NSC kommt aus dem Stand ',
+        'M2_OUTPUT_5' => ' und geht dem Beruf ',
+        'M2_OUTPUT_6' => ' nach.',
+        'M2_OUTPUT_7' => 'Der Charakter hat folgende Sprachauffälligkeiten: ',
+        'M2_OUTPUT_8' => 'Der Charakter hat folgende kosmetische Auffälligkeiten: ',
+        'M2_OUTPUT_9' => 'Die Statur des NSC beschreibt sich wie folgt: ',
 
         'MODULE_3' => 'Geld-Generator',
 
