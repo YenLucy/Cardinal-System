@@ -65,7 +65,7 @@ function cardinalquestgen($stand,$region,$reputation) {
 	echo "<br>";
 	echo $ergebnis[$randomvalue][1];
 	
-	echo "<br><br>";
+	echo "<br>";
 	echo lang("M1_OUTPUT_6");
 	echo "<br>";
 	echo $ergebnis[$randomvalue][2];

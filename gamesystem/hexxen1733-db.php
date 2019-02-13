@@ -61,4 +61,24 @@
 	$SECTION_12 = 'Verletzungen';
 	$SECTION_12_PART_ID = 'idVerletzungen';
 	$SECTION_12_PART_1 = 'Beschreibung';
+
+	//Money-Gen: 13,14,15
+
+	$SECTION_13 = 'Gegenstand';
+	$SECTION_13_PART_ID = 'idGegenstand';
+	$SECTION_13_PART_1 = 'Name';
+	$SECTION_13_PART_2 = 'Wert';
+	$SECTION_13_PART_3 = 'Kategorie';
+	$SECTION_13_PART_4 = 'Beschreibung';
+
+	$SECTION_14 = 'GegenstandKategorie';
+	$SECTION_14_PART_ID = 'idGegenstandKategorie';
+	$SECTION_14_PART_1 = 'Name';
+
+	$SECTION_15 = 'Gulden';
+	$SECTION_15_PART_ID = 'idGulden';
+	$SECTION_15_PART_1 = 'Minimum';
+	$SECTION_15_PART_2 = 'Maximum';
+	$SECTION_15_PART_3 = 'Bezeichner';
+
 ?>

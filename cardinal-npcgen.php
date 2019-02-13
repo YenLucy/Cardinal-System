@@ -13,7 +13,6 @@ function cardinalnpcgen($region,$past,$stand,$job) {
 	mysqli_set_charset($db,'utf-8');
 	
 	//Vorname
-	echo "<br><br>";
 	echo lang("M2_OUTPUT_1");
 	$ergebnis = mysqli_query($db,"SELECT ".$SECTION_2_PART_2." FROM ".$SECTION_2." WHERE ".$SECTION_2_PART_1." LIKE ".$region);	
 	$ergebnis = mysqli_fetch_all($ergebnis);
