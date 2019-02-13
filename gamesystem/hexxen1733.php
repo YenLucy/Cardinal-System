@@ -37,6 +37,19 @@ function lang($phrase){
         'M2_OUTPUT_9' => 'Die Statur des NSC beschreibt sich wie folgt: ',
 
         'MODULE_3' => 'Geld-Generator',
+        'M3_PART_1' => 'Goldzahl',
+        'M3_PART_2' => 'Belohnung',
+        'M3_PART_3' => 'Kategorie',
+
+        'M3_OUTPUT_1' => 'Der Geltungsbereich ist ',
+        'M3_OUTPUT_2' => ' - ',
+        'M3_OUTPUT_3' => 'Der zufällig ermittelte Wert ist ',
+        'M3_OUTPUT_4' => 'Die gewählte Kategorie ist ',
+        'M3_OUTPUT_5' => '',
+        'M3_OUTPUT_6' => '',
+        'M3_OUTPUT_7' => '',
+        'M3_OUTPUT_8' => '',
+        'M3_OUTPUT_9' => '',
 
         'MODULE_4' => 'Lore-Generator'
 

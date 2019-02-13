@@ -6,6 +6,7 @@
 		include "MYSQL_PARAMS.php";
 		include "cardinal-questgen.php";	
 		include "cardinal-npcgen.php";
+		include "cardinal-moneygen.php";
 
 		$db = mysqli_connect($MYSQL_HOSTIP,$MYSQL_USER,$MYSQL_PASS,$MYSQL_DATABASE);
 		if(!$db) {
@@ -111,7 +112,7 @@
 							?>
 							</select>
 						</div>
-						</div>
+				
 						<div class="npcgen-tragicalpast">
 							<h3><?php echo lang("M2_PART_2"); ?></h3>
 						<select name="past" class="select past">
@@ -164,8 +165,60 @@
 				<h2 class="headline"><?php echo lang("MODULE_3"); ?></h2>
 				<div class="money-innerwrapper innerwrapper">
 					<form class="money-input input">
+						<div class="moneygen-geld">
+							<?php
+							echo lang("M3_PART_1");
+							?>
+							<input type="text" name="gulden" class=" gulden">
+						</div>
+						<div class="moneygen-belohnung">
+							<?php
+							echo lang("M3_PART_2");
+							?>
+							<select name="belohnung" class="select belohnung">
+								<?php
+								$ergebnis = mysqli_query($db,"SELECT * FROM ".$SECTION_15." ORDER BY ".$SECTION_15_PART_ID);
+								$ergebnis = mysqli_fetch_all($ergebnis);
+								$count = 0;
+								while($ergebnis[$count] !== null) {
+									echo "<option value=".$ergebnis[$count][0].">".$ergebnis[$count][3]."</option>";
+									$count = $count + 1;
+								}
+								?>
+							</select>
+						</div>
+						<div class="moneygen-kategorie">
+							<?php
+							echo lang("M3_PART_3");
+							?>
+							<select name="kategorie" class="select kategorie">
+								<option value="random">Random</option>
+							<?php
+								$ergebnis = mysqli_query($db,"SELECT * FROM ".$SECTION_14." ORDER BY ".$SECTION_14_PART_ID);
+								$ergebnis = mysqli_fetch_all($ergebnis);
+
+								$count = 0;
+								while($ergebnis[$count] !== null) {
+									echo "<option value=".$ergebnis[$count][0].">".$ergebnis[$count][1]."</option>";
+									$count = $count + 1;
+								}
+							?>
+							</select>
+						</div>
+
+						<input type="submit" class="moneygen-submit">
 					</form>
-					<div class="money-output output"></div>
+					<div class="money-output output">
+						<?php					
+						if($_GET["gulden"]) {
+							if($_GET["kategorie"] != NULL && $_GET["belohnung"] != NULL) cardinalmoneygen($_GET["belohnung"],$_GET["kategorie"],$_GET["gulden"]);
+						}
+						else {
+							if($_GET["kategorie"] != NULL && $_GET["belohnung"] != NULL) cardinalmoneygen($_GET["belohnung"],$_GET["kategorie"],0);	
+						}
+						?>
+
+					</div>
 				</div>
 			</div>
 
