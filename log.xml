@@ -14,5 +14,13 @@
 <changelog>
 	<version>0.2</version>
 	<changes>	
+		Added functionality for npc-gen and money-gen;
+		Improved functionality of questgen;
+	</changes>
+</changelog>
+<changelog>
+	<version>0.4</version>
+	<changes>	
+		Improved design of cardinal;
 	</changes>
 </changelog>
