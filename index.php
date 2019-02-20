@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<?php
-		$CardinalVersionNumber = 0.4;
+		$CardinalVersionNumber = 0.5;
 		include "system.php";
 		include "MYSQL_PARAMS.php";
 		include "cardinal-questgen.php";	
