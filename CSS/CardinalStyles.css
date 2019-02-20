@@ -7,48 +7,9 @@ margin-left: auto;
 margin-right: auto;
 }
 
-.quest-input {
-
-}
-
-.quest-output {
-
-}
-
-.npc-input {
-
-}
-
-.npc-output {
-
-}
-
-.lore-input {
-
-}
-
-.lore-output {
-
-}
-
-.money-input {
-
-}
-
-.money-output {
-
-}
-
-.table-input {
-
-}
-
-.table-output {
-
-}
-
 .outerwrapper {
-	border: 1px solid black;
+	border-top: 1px solid black;
+	border-bottom: 1px solid black;
 	padding: 10px;
 }
 
@@ -67,12 +28,22 @@ margin-right: auto;
     min-height: 162px;
     display: inline-block;
     border: 2px solid black;
+
 }
 
 h1,h2,h3,h4,h5,h6,p {
 	padding: 0 !important;
 	margin: 0 !important;
 }
+
+h1,h2,h3,h4,h5,h6 {
+	font-family: "Play";
+}
+
+p,option {
+	font-family: "Roboto";
+}
+
 
 .headline {
 	text-align: center;
@@ -176,6 +147,7 @@ h1,h2,h3,h4,h5,h6,p {
 	right: 0;
 	margin-left: auto;
 	margin-right: auto;
+	transition: 0.5s transform;
 }
 
 .opener {
@@ -193,4 +165,33 @@ h1,h2,h3,h4,h5,h6,p {
 .opener:hover {
 	color:black;
 	text-decoration: none;
+}
+
+.open:before {
+	transform:rotate(180deg);
+}
+
+.outerwrapper {
+	transition: 0.5s min-height;
+	height: 50px;
+	min-height: 50px;
+	overflow: hidden;
+}
+
+.trigger {
+	min-height: 300px !important;
+}
+
+body {
+	background-image: url("../files/background2.png") ;
+	background-size: auto;
+}
+
+.cardinal-wrapper {
+	border: 1px black solid;
+	background-color: #dfdce3;
+}
+
+.hidden {
+	display: none;
 }

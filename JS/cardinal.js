@@ -1,23 +1,27 @@
-function toggleOpenClose(anchorid,open,close,wrapper) {
+function toggleOpenClose(anchorid,classname,wrapper) {
 	
 	var element = document.getElementById(anchorid);
 	var wrapper = document.getElementById(wrapper);
 	console.log(element);
-	if (wrapper.classList.contains(open)) {
-		wrapper.classList.remove(open);
-		wrapper.classList.add(close);
-		element.classList.remove("icon-down-open");
-		element.classList.add("icon-up-open");
-		element.classList.remove("open");
-		element.classList.add("close");
+	console.log(wrapper);
+		wrapper.classList.toggle(classname);
+		element.classList.toggle("open");
+}
 
+function triggerOpener(quest,npc,money) {
+	if(quest==1) {
+
+		document.getElementById("q-outerwrapper").classList.toggle("trigger");
+		document.getElementById("opener-quest").classList.toggle("open");
 	}
-	else {
-		wrapper.classList.remove(close);
-		wrapper.classList.add(open);
-		element.classList.remove("icon-up-open");
-		element.classList.add("icon-down-open");
-		element.classList.remove("close");
-		element.classList.add("open");
+	if(npc==1) {
+
+		document.getElementById("nsc-outerwrapper").classList.toggle("trigger");
+		document.getElementById("opener-npc").classList.toggle("open");
+	}
+	if(money==1) {
+
+		document.getElementById("gold-outerwrapper").classList.toggle("trigger");
+		document.getElementById("opener-money").classList.toggle("open");
 	}
 }

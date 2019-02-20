@@ -54,12 +54,12 @@ function cardinalnpcgen($region,$past,$stand,$job) {
 	//Beruf und Stand
 	echo "<br>";
 	echo lang("M2_OUTPUT_4");
-	$stand = intval($stand);
-	$ergebnis = mysqli_query($db,"SELECT ".$SECTION_5_PART_1." FROM ".$SECTION_5." WHERE ".$SECTION_5_PART_ID." LIKE ".$stand);
-	$ergebnis = mysqli_fetch_assoc($ergebnis);
-	echo $ergebnis[$SECTION_5_PART_1];
-	echo lang("M2_OUTPUT_5");
 	if($job==="random") {
+		$stand = intval($stand);
+		$ergebnis = mysqli_query($db,"SELECT ".$SECTION_5_PART_1." FROM ".$SECTION_5." WHERE ".$SECTION_5_PART_ID." LIKE ".$stand);
+		$ergebnis = mysqli_fetch_assoc($ergebnis);
+		echo $ergebnis[$SECTION_5_PART_1];
+		echo lang("M2_OUTPUT_5");
 		$ergebnis = mysqli_query($db,"SELECT ".$SECTION_8_PART_1." FROM ".$SECTION_8." WHERE ".$SECTION_8_PART_2." LIKE ".$stand);
 		$ergebnis = mysqli_fetch_all($ergebnis);
 		$count = count($ergebnis);
@@ -68,8 +68,14 @@ function cardinalnpcgen($region,$past,$stand,$job) {
 	}	
 	else {
 		$job = intval($job);
-		$ergebnis = mysqli_query($db,"SELECT ".$SECTION_8_PART_1." FROM ".$SECTION_8." WHERE ".$SECTION_8_PART_ID." LIKE ".$job);
+		$ergebnis = mysqli_query($db,"SELECT ".$SECTION_8_PART_1.",".$SECTION_8_PART_2." FROM ".$SECTION_8." WHERE ".$SECTION_8_PART_ID." LIKE ".$job);
 		$ergebnis = mysqli_fetch_assoc($ergebnis);
+
+		$stand = $ergebnis[$SECTION_8_PART_2];
+		$ergebnis2 = mysqli_query($db,"SELECT ".$SECTION_5_PART_1." FROM ".$SECTION_5." WHERE ".$SECTION_5_PART_ID." LIKE ".$stand);
+		$ergebnis2 = mysqli_fetch_assoc($ergebnis2);
+		echo $ergebnis2[$SECTION_5_PART_1];
+		echo lang("M2_OUTPUT_5");
 		echo $ergebnis[$SECTION_8_PART_1];
 	}
 	echo lang("M2_OUTPUT_6");

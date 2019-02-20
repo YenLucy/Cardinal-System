@@ -19,6 +19,7 @@
 			<?php echo lang("TITLE"); ?><?= $CardinalVersionNumber ?>
 		</title>
 		
+		<link href="https://fonts.googleapis.com/css?family=Play|Roboto" rel="stylesheet">
 		<link rel="stylesheet" href="CSS/CardinalStyles.css">
 
 		<meta charset="UTF-8">
@@ -34,13 +35,15 @@
 				<p class="introtext"><?php echo lang("INTRO_TEXT"); ?></p>
 			</div>
 
-			<div class="quest-outerwrapper outerwrapper">
+			<div class="quest-outerwrapper outerwrapper" id="q-outerwrapper">
 				<h2 class="headline"><?php echo lang("MODULE_1"); ?></h2>
-				<a id="opener-quest" href="javascript:toggleOpenClose('opener-quest','open-quest','close-quest','q-innerwrapper');" class="opener icon-down-open open-quest"></a>
+				<a id="opener-quest" href="javascript:toggleOpenClose('opener-quest','trigger','q-outerwrapper');" class="opener icon-down-open open-quest"></a>
 
 				<div id="q-innerwrapper" class="quest-innerwrapper innerwrapper">
 	
 					<form class="quest-input input">
+
+						<input type="text" name="qt" value=1 class="hidden">
 						
 						<div class="questgen-staende generator-select">
 						<h3><?php echo lang("M1_PART_1"); ?></h3>
@@ -97,12 +100,13 @@
 				</div>
 			</div>
 
-			<div class="npc-outerwrapper outerwrapper">
+			<div class="npc-outerwrapper outerwrapper" id="nsc-outerwrapper">
 				<h2 class="headline"><?php echo lang("MODULE_2"); ?></h2>
-				<a href="javascript:toggleOpenClose('opener-npc','open-npc','close-npc');" id="opener-npc" class="opener icon-down-open open-npc"></a>
+				<a href="javascript:toggleOpenClose('opener-npc','trigger','nsc-outerwrapper');" id="opener-npc" class="opener icon-down-open open-npc"></a>
 
 				<div class="npc-innerwrapper innerwrapper">
 					<form class="npc-input input">
+						<input type="text" name="nt" value=1 class="hidden">
 						<div class="npcgen-region generator-select">
 							<h3><?php echo lang("M2_PART_1"); ?></h3>
 							<select name="region" class="select region">
@@ -166,13 +170,15 @@
 				</div>
 			</div>
 
-			<div class="money-outerwrapper outerwrapper">
+			<div class="money-outerwrapper outerwrapper" id="gold-outerwrapper">
 				<h2 class="headline"><?php echo lang("MODULE_3"); ?></h2>
-					<a href="javascript:toggleOpenClose('opener-money','open-money','close-money');" id="opener-money" class="opener icon-down-open open-money"></a>
+					<a href="javascript:toggleOpenClose('opener-money','trigger','gold-outerwrapper');" id="opener-money" class="opener icon-down-open open-money"></a>
 
 				<div class="money-innerwrapper innerwrapper">
 	
 					<form class="money-input input">
+
+						<input type="text" name="mt" value=1 class="hidden">
 						<div class="moneygen-geld generator-select">
 							<h3><?php
 							echo lang("M3_PART_1");
@@ -253,5 +259,14 @@
 		</div>	
 
 		<script src="JS/cardinal.js"></script>	
+		<?php
+			if($_GET["qt"]!=1) $qt = 0; 
+			else $qt = 1;
+			if($_GET["nt"]!=1) $nt = 0; 
+			else $nt = 1;
+			if($_GET["mt"]!=1) $mt = 0; 
+			else $mt = 1;
+		?>
+		<script>triggerOpener(<?=$qt?>,<?=$nt?>,<?=$mt?>)</script>
 	</body>
 </html>
