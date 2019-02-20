@@ -1,6 +1,6 @@
 <?<?xml version="1.0" encoding="UTF-8"?>
 
-<actual v="0.2"></actualversion>
+<actual v="0.4"></actualversion>
 
 <changelog>
 	<version>0.1</version>
@@ -14,5 +14,21 @@
 <changelog>
 	<version>0.2</version>
 	<changes>	
+		Added functionality for npc-gen and money-gen;
+		Improved functionality of questgen;
+	</changes>
+</changelog>
+<changelog>
+	<version>0.3</version>
+	<changes>	
+		skipped version;
+	</changes>
+</changelog>
+<changelog>
+	<version>0.4</version>
+	<changes>	
+		Improved design of cardinal;
+		Bugfixing (logic-failure in npcgen);
+		finished rudimentary design;
 	</changes>
 </changelog>

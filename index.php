@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<?php
-		$CardinalVersionNumber = 0.2;
+		$CardinalVersionNumber = 0.4;
 		include "system.php";
 		include "MYSQL_PARAMS.php";
 		include "cardinal-questgen.php";	
@@ -19,6 +19,7 @@
 			<?php echo lang("TITLE"); ?><?= $CardinalVersionNumber ?>
 		</title>
 		
+		<link href="https://fonts.googleapis.com/css?family=Play|Roboto" rel="stylesheet">
 		<link rel="stylesheet" href="CSS/CardinalStyles.css">
 
 		<meta charset="UTF-8">
@@ -34,12 +35,17 @@
 				<p class="introtext"><?php echo lang("INTRO_TEXT"); ?></p>
 			</div>
 
-			<div class="quest-outerwrapper outerwrapper">
+			<div class="quest-outerwrapper outerwrapper" id="q-outerwrapper">
 				<h2 class="headline"><?php echo lang("MODULE_1"); ?></h2>
-				<div class="quest-innerwrapper innerwrapper">
+				<a id="opener-quest" href="javascript:toggleOpenClose('opener-quest','trigger','q-outerwrapper');" class="opener icon-down-open open-quest"></a>
+
+				<div id="q-innerwrapper" class="quest-innerwrapper innerwrapper">
+	
 					<form class="quest-input input">
+
+						<input type="text" name="qt" value=1 class="hidden">
 						
-						<div class="questgen-staende">
+						<div class="questgen-staende generator-select">
 						<h3><?php echo lang("M1_PART_1"); ?></h3>
 						<select name="staende" class="select stand">
 							<?php
@@ -54,7 +60,7 @@
 						</select>
 						</div>
 					
-						<div class="questgen-region">
+						<div class="questgen-region generator-select">
 						<h3><?php echo lang("M1_PART_2"); ?></h3>
 						<select name="region" class="select region">
 							<?php
@@ -69,9 +75,9 @@
 						</select>
 						</div>
 						
-						<div class="questgen-reputation">
+						<div class="questgen-reputation generator-select">
 						<h3><?php echo lang("M1_PART_3"); ?></h3>
-						<select name="reputation" class="input-text reputation">
+						<select name="reputation" class="select reputation">
 							<option value="---">---</option>
 							<option value="--">--</option>
 							<option value="-">-</option>
@@ -94,11 +100,14 @@
 				</div>
 			</div>
 
-			<div class="npc-outerwrapper outerwrapper">
+			<div class="npc-outerwrapper outerwrapper" id="nsc-outerwrapper">
 				<h2 class="headline"><?php echo lang("MODULE_2"); ?></h2>
+				<a href="javascript:toggleOpenClose('opener-npc','trigger','nsc-outerwrapper');" id="opener-npc" class="opener icon-down-open open-npc"></a>
+
 				<div class="npc-innerwrapper innerwrapper">
 					<form class="npc-input input">
-						<div class="npcgen-region">
+						<input type="text" name="nt" value=1 class="hidden">
+						<div class="npcgen-region generator-select">
 							<h3><?php echo lang("M2_PART_1"); ?></h3>
 							<select name="region" class="select region">
 							<?php
@@ -113,15 +122,15 @@
 							</select>
 						</div>
 				
-						<div class="npcgen-tragicalpast">
+						<div class="npcgen-tragicalpast generator-select">
 							<h3><?php echo lang("M2_PART_2"); ?></h3>
 						<select name="past" class="select past">
-							<option value=1>true</option>
-							<option value=0>false</option>
+							<option value=1>Tragisch</option>
+							<option value=0>Gewöhnlich</option>
 						</select>
 
 						</div>
-						<div class="npcgen-stand">
+						<div class="npcgen-stand generator-select">
 							<h3><?php echo lang("M2_PART_3"); ?></h3>
 							<select name="stand" class="select stand">
 							<?php
@@ -135,7 +144,7 @@
 							?>
 						</select>
 						</div>
-						<div class="npcgen-job">
+						<div class="npcgen-job generator-select">
 							<h3><?php echo lang("M2_PART_4"); ?></h3>
 							<select name="job" class="select job">
 							<option value="random">random</option>
@@ -161,20 +170,25 @@
 				</div>
 			</div>
 
-			<div class="money-outerwrapper outerwrapper">
+			<div class="money-outerwrapper outerwrapper" id="gold-outerwrapper">
 				<h2 class="headline"><?php echo lang("MODULE_3"); ?></h2>
+					<a href="javascript:toggleOpenClose('opener-money','trigger','gold-outerwrapper');" id="opener-money" class="opener icon-down-open open-money"></a>
+
 				<div class="money-innerwrapper innerwrapper">
+	
 					<form class="money-input input">
-						<div class="moneygen-geld">
-							<?php
+
+						<input type="text" name="mt" value=1 class="hidden">
+						<div class="moneygen-geld generator-select">
+							<h3><?php
 							echo lang("M3_PART_1");
-							?>
-							<input type="text" name="gulden" class=" gulden">
+							?></h3>
+							<input type="text" name="gulden" class="inputtype gulden">
 						</div>
-						<div class="moneygen-belohnung">
-							<?php
+						<div class="moneygen-belohnung generator-select">
+							<h3><?php
 							echo lang("M3_PART_2");
-							?>
+							?></h3>
 							<select name="belohnung" class="select belohnung">
 								<?php
 								$ergebnis = mysqli_query($db,"SELECT * FROM ".$SECTION_15." ORDER BY ".$SECTION_15_PART_ID);
@@ -187,10 +201,10 @@
 								?>
 							</select>
 						</div>
-						<div class="moneygen-kategorie">
-							<?php
+						<div class="moneygen-kategorie generator-select">
+							<h3><?php
 							echo lang("M3_PART_3");
-							?>
+							?></h3>
 							<select name="kategorie" class="select kategorie">
 								<option value="random">Random</option>
 							<?php
@@ -226,6 +240,7 @@
 				<h2 class="headline"><?php echo lang("MODULE_4"); ?></h2>
 				<div class="lore-innerwrapper innerwrapper">
 					<form class="lore-input input">
+						<h3><?php echo lang("WIP");?></h3>
 					</form>
 					<div class="lore-output output"></div>
 				</div>
@@ -235,11 +250,23 @@
 				<h2 class="headline">Table-Input</h2>
 				<div class="table-innerwrapper innerwrapper">
 					<form class="table-input input">
+						<h3><?php echo lang("WIP");?></h3>
 					</form>
 					<div class="table-output output"></div>
 				</div>
 			</div>
 
-		</div>		
+		</div>	
+
+		<script src="JS/cardinal.js"></script>	
+		<?php
+			if($_GET["qt"]!=1) $qt = 0; 
+			else $qt = 1;
+			if($_GET["nt"]!=1) $nt = 0; 
+			else $nt = 1;
+			if($_GET["mt"]!=1) $mt = 0; 
+			else $mt = 1;
+		?>
+		<script>triggerOpener(<?=$qt?>,<?=$nt?>,<?=$mt?>)</script>
 	</body>
 </html>

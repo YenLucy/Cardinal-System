@@ -22,7 +22,7 @@ function lang($phrase){
 
         'MODULE_2' => 'NPC-Generator',
         'M2_PART_1' => 'Region',
-        'M2_PART_2' => 'Tragische Vergangenheit',
+        'M2_PART_2' => 'Vergangenheit',
         'M2_PART_3' => 'Stand',
         'M2_PART_4' => 'Job',
 
@@ -51,7 +51,9 @@ function lang($phrase){
         'M3_OUTPUT_8' => '',
         'M3_OUTPUT_9' => '',
 
-        'MODULE_4' => 'Lore-Generator'
+        'MODULE_4' => 'Lore-Generator',
+
+        'WIP' => 'Work still in Progress. Please come back later.'
 
     );
     return $lang[$phrase];

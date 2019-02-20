@@ -1,3 +1,5 @@
+@import "iconfont/css/fontello.css";
+
 .cardinal-wrapper {
 
 max-width: 800px;
@@ -5,53 +7,14 @@ margin-left: auto;
 margin-right: auto;
 }
 
-.quest-input {
-
-}
-
-.quest-output {
-
-}
-
-.npc-input {
-
-}
-
-.npc-output {
-
-}
-
-.lore-input {
-
-}
-
-.lore-output {
-
-}
-
-.money-input {
-
-}
-
-.money-output {
-
-}
-
-.table-input {
-
-}
-
-.table-output {
-
-}
-
 .outerwrapper {
-	border: 1px solid black;
+	border-top: 1px solid black;
+	border-bottom: 1px solid black;
 	padding: 10px;
 }
 
 .innerwrapper {
-
+	display: flex;
 }
 
 .input {
@@ -65,6 +28,7 @@ margin-right: auto;
     min-height: 162px;
     display: inline-block;
     border: 2px solid black;
+
 }
 
 h1,h2,h3,h4,h5,h6,p {
@@ -72,26 +36,30 @@ h1,h2,h3,h4,h5,h6,p {
 	margin: 0 !important;
 }
 
+h1,h2,h3,h4,h5,h6 {
+	font-family: "Play";
+}
+
+p,option {
+	font-family: "Roboto";
+}
+
+
 .headline {
 	text-align: center;
 }
 
 .questgen-submit {
 	display: block;
-	margin-left: auto;
-	margin-right: auto;
-	margin-top:10px;
+	margin-left: 80px;
+	margin-top:20px;
 	margin-bottom: 5px;
 }
 
 .questgen-staende {
-	display: flex;
-	margin-bottom: 10px;
 }
 
 .questgen-region {
-	display: flex;
-	margin-bottom: 10px;
 }
 
 .questgen-region .select {
@@ -105,4 +73,125 @@ h1,h2,h3,h4,h5,h6,p {
 .input-text {
 	margin-top: 10px;
 	margin-bottom: 10px;
+}
+
+.questgen-reputation {
+
+}
+
+.questgen-reputation .select {
+	margin-left: 50px;
+}
+
+.generator-select {
+	display: flex;
+	margin-bottom: 10px;
+}
+
+.npcgen-tragicalpast .select {
+	margin-left: 20px;
+}
+
+.npcgen-region .select {
+	margin-left: 79px;
+}
+
+.npcgen-stand .select {
+	margin-left: 89px;
+}
+
+.npcgen-job .select {
+	margin-left: 106px;
+}
+
+.npcgen-submit {
+	margin-left: 135px;
+	margin-top: 10px;
+}
+
+.moneygen-geld .gulden {
+	margin-left: 39px;
+}
+
+.moneygen-belohnung .select {
+	margin-left: 25px;
+}
+
+.moneygen-kategorie .select {
+	margin-left: 32px;
+}
+
+.moneygen-submit {
+	margin-left: 110px;
+	margin-top: 15px;
+}
+
+.lore-outerwrapper {
+	display: none;
+}
+
+.table-outerwrapper {
+	display: none;
+}
+
+.input,.output {
+	margin-top: 40px;
+	margin-bottom: 20px;
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+.opener:before {
+	position:absolute;
+	left: 0;
+	right: 0;
+	margin-left: auto;
+	margin-right: auto;
+	transition: 0.5s transform;
+}
+
+.opener {
+	position:absolute;
+	left: 0;
+	right: 0;
+	margin-left: auto;
+	margin-right: auto;
+	color: black;
+	text-decoration: none;
+
+
+}
+
+.opener:hover {
+	color:black;
+	text-decoration: none;
+}
+
+.open:before {
+	transform:rotate(180deg);
+}
+
+.outerwrapper {
+	transition: 0.5s min-height;
+	height: 50px;
+	min-height: 50px;
+	overflow: hidden;
+}
+
+.trigger {
+	min-height: 300px !important;
+}
+
+body {
+	background-image: url("../files/background2.png") ;
+	background-size: auto;
+}
+
+.cardinal-wrapper {
+	border: 1px black solid;
+	background-color: #dfdce3;
+}
+
+.hidden {
+	display: none;
 }
